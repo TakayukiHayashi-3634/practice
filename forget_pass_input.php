@@ -18,7 +18,7 @@
 			<select name="secret">
 				<option value="ペット">飼っていペットの名前</option>
 				<option value="出身">出身</option>
-				<option value="習い事">子供のころの習っていたこと</option>
+				<option value="習い事">子供のころの習い事</option>
 			</select><br>
 			　　　　　　<input type="text" name="secretText"><br>
 			<input type="hidden" name="newPass" value=""><br>
