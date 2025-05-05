@@ -9,7 +9,7 @@
 	<body>
         <?php
             //クロスサイトスクリプション対策の関数ファイル読み込み
-            require_once("function.php");
+            require_once("function/InputCheck.php");
             
             //セッションの開始
             session_start();

@@ -1,6 +1,6 @@
 <?php
 //クロスサイトスクリプション対策の関数ファイル読み込み
-require_once("function.php");
+require_once("../../function/InputCheck.php");
 
 //セッションの開始
 session_start();
@@ -26,12 +26,12 @@ else
 
 		//IDとパスをテキストに保存して管理
 		//glob関数ディレクトリ内のファイル一覧を配列で取得
-		$all_file = glob("data/*");
+		$all_file = glob("../../data/*");
 		//ファイルの数を取得
 		$file_num = count($all_file); 
 
 		//ファイルがなかったら作成して書き込み
-		$file = fopen( "./data/{$file_num}.txt", "a");
+		$file = fopen( "../../data/{$file_num}.txt", "a");
 		flock($file,LOCK_EX);
 		fwrite($file,"{$set_id}/{$set_pass}/{$set_secret}");
 		flock($file,LOCK_UN);

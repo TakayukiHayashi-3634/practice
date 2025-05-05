@@ -13,9 +13,9 @@
 			パスワード：<input type="password" name="password"><br>
 		
             <input type="submit" value="ログイン"><br>
-
-			初めてログインする方は<a href ="set_pass.php">ここ</a>をクリック<br>
-			パスワードを忘れた方は<a href ="forget_pass.php">ここ</a>をクリック
 		</form>
+
+		初めてログインする方は<a href ="login/create/set_pass.php">ここ</a>をクリック<br>
+		パスワードを忘れた方は<a href ="login/reset/forget_pass.php">ここ</a>をクリック
 	</body>
 </html>

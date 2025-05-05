@@ -1,6 +1,6 @@
 <?php
 //クロスサイトスクリプション対策の関数ファイル読み込み
-require_once("function.php");
+require_once("../../function/InputCheck.php");
 
 //ID,パスの要素番号用の定数
 $id = 0;
@@ -14,7 +14,7 @@ $fileArray;
 $fileIDPass;
 
 //glob関数ディレクトリ内のファイル一覧を配列で取得
-$allFile = glob("data/*");
+$allFile = glob("../../data/*");
 //ファイルの数を取得
 $fileNum = count($allFile);
 
@@ -33,7 +33,7 @@ else
 		for($i = 0;$i < $fileNum;$i++)
 		{
 			//ファイル読み込み
-			$file = fopen( "./data/{$i}.txt", "r");
+			$file = fopen( "../../data/{$i}.txt", "r");
 			flock($file,LOCK_EX);
 			while($line = fgets($file,1024))
 			{
@@ -59,7 +59,7 @@ else
 					$fileIDPass[$i][1] = $_POST["newPass"];
 
 					//ファイルがなかったら作成して書き込み
-					$file = fopen( "./data/{$i}.txt", "w");
+					$file = fopen( "../../data/{$i}.txt", "w");
 					flock($file,LOCK_EX);
 					fwrite($file,"{$fileIDPass[$i][$id]}/{$fileIDPass[$i][$pass]}/{$fileIDPass[$i][$secret]}");
 					flock($file,LOCK_UN);

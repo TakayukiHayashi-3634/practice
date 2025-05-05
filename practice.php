@@ -1,6 +1,6 @@
 <?php
 //クロスサイトスクリプション対策の関数ファイル読み込み
-require_once("function.php");
+require_once("function/InputCheck.php");
 
 //セッションの開始
 session_start();
@@ -29,7 +29,7 @@ $file_num = count($all_file);
 for($i = 0;$i < $file_num;$i++)
 {
 	//ファイル読み込み
-	$file = fopen( "./data/{$i}.txt", "r");
+	$file = fopen( "data/{$i}.txt", "r");
 	flock($file,LOCK_EX);
 	while($line = fgets($file,1024))
 	{
@@ -50,7 +50,7 @@ for($i = 0;$i < $file_num;$i++)
 //初めてアクセス時
 if(empty($_POST))
 {
-    require_once("practice_input.php");
+    require_once("login/practice_input.php");
 }
 else
 {
@@ -62,14 +62,11 @@ else
 		{	
 			$IDPassFlag = true;
 			$_SESSION["login"] = $fileIDPass[$i][ID];
-			//$_GET["id"] = $fileIDPass[$i][ID];
 			//誰のページを開くか保存
 			$parsonID = $i;
 			$parsonName ="ID:{$_POST['id']}さん";
 
-			require_once("practice_loginpage.php");
-
-			//header("Location:practice_page2.php");
+			require_once("login/practice_loginpage.php");
 		}
 	}
 	//IDかパスが間違っていた時
@@ -77,6 +74,6 @@ else
 	{
 		$_SESSION["login"] = false;
 		print h("idかpsswordが違います");
-		require_once("practice_input.php");
+		require_once("login/practice_input.php");
 	}
 }
