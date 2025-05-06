@@ -1,17 +1,18 @@
 <?php
 //クロスサイトスクリプション対策の関数ファイル読み込み
 require_once("function/InputCheck.php");
+require_once("login/Presonal_Information.php");
 
 //セッションの開始
 session_start();
 
 //入力したidとpassを格納する変数
-
 $_SESSION["login"] = false;
 
 //ID,パスの要素番号用の定数
 const ID = 0;
 const PASS = 1;
+const SERECT = 2;
 
 //ファイル操作に使う変数
 $fileStore;
@@ -66,7 +67,12 @@ else
 			$parsonID = $i;
 			$parsonName ="ID:{$_POST['id']}さん";
 
-			require_once("login/practice_loginpage.php");
+			//ログインしたアカウントの情報を記録するインスタンスを生成
+			//もし過去にログインしたことがあるかで分岐する
+			//引数の部分で分ける
+			$presonalInfo = new Personal_Information($_POST["id"],$_POST["password"],$fileIDPass[$i][SERECT]);
+
+			require_once("login/login.php");
 		}
 	}
 	//IDかパスが間違っていた時

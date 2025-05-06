@@ -1,8 +1,9 @@
+<!--practiceから呼ばれるファイル -->
 <!DOCTYPE html> 
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8">
-		<title>php制作</title>
+		<title>ログインページ</title>
 	</head>
 	
 	<body>

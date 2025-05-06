@@ -1,3 +1,5 @@
+<!-- practice_loginpageから呼ばれるファイル -->
+ 
 <!DOCTYPE html> 
 <html lang="ja">
 	<head>
@@ -33,7 +35,6 @@
                 $error_msg = "このページにはアクセスできません";
                 require_once("practice_output_error.php");
             }
-
         ?>
         <br>
     </body>
